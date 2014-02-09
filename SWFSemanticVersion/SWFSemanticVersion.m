@@ -106,15 +106,17 @@
 
 - (NSArray *)components
 {
-    return @[self.major, self.minor, self.patch, self.pre, self.build];
+    return @[self.major, self.minor, self.patch, self.pre ?: @"", self.build ?: @""];
 }
 
 - (NSComparisonResult)compare:(SWFSemanticVersion *)version
 {
+    if (!version) return NSOrderedDescending;
+    
     __block NSComparisonResult result = NSOrderedSame;
     
     NSArray *these = [self components];
-    NSArray *those = [self components];
+    NSArray *those = [version components];
     
     [these enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         id this = obj;

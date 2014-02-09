@@ -34,4 +34,105 @@
     XCTAssertEqualObjects(@1, semVer.minor);
 }
 
+- (void)testInvalidVersionsAreNil
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"pretzels"];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
+- (void)testBuildNumbers
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"0.1.0+build.100"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"0.1.0+build.200"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqualObjects(b1.major, b2.major);
+    XCTAssertEqualObjects(b1.minor, b2.minor);
+    XCTAssertEqualObjects(b1.patch, b2.patch);
+    XCTAssertNotEqualObjects(b1.build, b2.build);
+    
+    XCTAssertEqual(NSOrderedAscending, [b1 compare:b2]);
+}
+
+- (void)testVersionIsGreaterThanNil
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"0.1.0"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"donuts"];
+    
+    XCTAssert(b1);
+    XCTAssertNil(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testTrailingBits
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1.9.7-rc.1"];
+    
+    XCTAssert(semVer, @"where are you, semVer?");
+    XCTAssertEqualObjects(@1, semVer.major);
+    XCTAssertEqualObjects(@9, semVer.minor);
+    XCTAssertEqualObjects(@7, semVer.patch);
+    XCTAssertEqualObjects(@"rc.1", semVer.pre);
+    XCTAssertNil(semVer.build);
+}
+
+- (void)testMajorBeatsMinor
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"0.1.0"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testMajorBeatsPatch
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"0.0.1"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testMinorBeatsPatch
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.1"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testBuildBeatsNoBuild
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0+build.1"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testTrailsBitsBeatsBuild
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0+build.2"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
 @end
