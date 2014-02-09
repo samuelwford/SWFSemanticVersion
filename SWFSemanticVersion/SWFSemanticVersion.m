@@ -109,23 +109,34 @@
     return @[self.major, self.minor, self.patch, self.pre ?: @"", self.build ?: @""];
 }
 
+- (BOOL)isEqual:(id)object
+{
+    return [self compare:object] == NSOrderedSame;
+}
+
 - (NSComparisonResult)compare:(SWFSemanticVersion *)version
 {
     if (!version) return NSOrderedDescending;
     
-    __block NSComparisonResult result = NSOrderedSame;
+    NSComparisonResult result = [self.major compare:version.major];
     
-    NSArray *these = [self components];
-    NSArray *those = [version components];
+    if (result == NSOrderedSame) {
+        result = [self.minor compare:version.minor];
+    }
     
-    [these enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        id this = obj;
-        id that = [those objectAtIndex:idx];
-        
-        result = [this compare:that];
-        
-        if (result != NSOrderedSame) *stop = YES;
-    }];
+    if (result == NSOrderedSame) {
+        result = [self.patch compare:version.patch];
+    }
+    
+    if (result == NSOrderedSame) {
+        if (self.pre && !version.pre) {
+            result = NSOrderedAscending; // pre < no-pre
+        } else if (!self.pre && version.pre) {
+            result = NSOrderedDescending; // no-pre > pre
+        } else if (self.pre && version.pre) {
+            result = [self.pre compare:version.pre];
+        }
+    }
     
     return result;
 }

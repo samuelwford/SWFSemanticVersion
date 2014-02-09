@@ -54,7 +54,7 @@
     XCTAssertEqualObjects(b1.patch, b2.patch);
     XCTAssertNotEqualObjects(b1.build, b2.build);
     
-    XCTAssertEqual(NSOrderedAscending, [b1 compare:b2]);
+    XCTAssertEqualObjects(b1, b2);
 }
 
 - (void)testVersionIsGreaterThanNil
@@ -113,7 +113,7 @@
     XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
 }
 
-- (void)testBuildBeatsNoBuild
+- (void)testBuildIgnored
 {
     SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0+build.1"];
     SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
@@ -121,18 +121,43 @@
     XCTAssert(b1);
     XCTAssert(b2);
     
-    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+    XCTAssertEqualObjects(b1, b2);
 }
 
-- (void)testTrailsBitsBeatsBuild
+- (void)testNoPreReleaseBeatsPreRelease
 {
-    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
-    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0+build.2"];
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
     
     XCTAssert(b1);
     XCTAssert(b2);
     
     XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testPreReleaseLexicalSort
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.2"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
+- (void)testEquality
+{
+    SWFSemanticVersion *b1a = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
+    SWFSemanticVersion *b1b = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0"];
+    
+    XCTAssert(b1a);
+    XCTAssert(b1b);
+    XCTAssert(b2);
+    
+    XCTAssert([b1a isEqual:b1b]);
+    XCTAssertFalse([b1a isEqual:b2]);
 }
 
 @end
