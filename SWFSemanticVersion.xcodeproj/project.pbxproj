@@ -23,6 +23,10 @@
 		324911C218A27FEB00F3438B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 324911C018A27FEB00F3438B /* InfoPlist.strings */; };
 		324911C418A27FEB00F3438B /* SWFSemanticVersionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 324911C318A27FEB00F3438B /* SWFSemanticVersionTests.m */; };
 		324911CF18A2801A00F3438B /* SWFSemanticVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 324911CE18A2801A00F3438B /* SWFSemanticVersion.m */; };
+		324911D418A7D30000F3438B /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 324911D018A7D30000F3438B /* CHANGELOG.md */; };
+		324911D518A7D30000F3438B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 324911D118A7D30000F3438B /* LICENSE */; };
+		324911D618A7D30000F3438B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 324911D218A7D30000F3438B /* README.md */; };
+		324911D718A7D30000F3438B /* SWFSemanticVersion.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 324911D318A7D30000F3438B /* SWFSemanticVersion.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		324911C318A27FEB00F3438B /* SWFSemanticVersionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWFSemanticVersionTests.m; sourceTree = "<group>"; };
 		324911CD18A2801A00F3438B /* SWFSemanticVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFSemanticVersion.h; sourceTree = "<group>"; };
 		324911CE18A2801A00F3438B /* SWFSemanticVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFSemanticVersion.m; sourceTree = "<group>"; };
+		324911D018A7D30000F3438B /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		324911D118A7D30000F3438B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		324911D218A7D30000F3438B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		324911D318A7D30000F3438B /* SWFSemanticVersion.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SWFSemanticVersion.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,10 @@
 		3249118918A27FEB00F3438B = {
 			isa = PBXGroup;
 			children = (
+				324911D018A7D30000F3438B /* CHANGELOG.md */,
+				324911D118A7D30000F3438B /* LICENSE */,
+				324911D218A7D30000F3438B /* README.md */,
+				324911D318A7D30000F3438B /* SWFSemanticVersion.podspec */,
 				3249119B18A27FEB00F3438B /* SWFSemanticVersion */,
 				324911BD18A27FEB00F3438B /* SWFSemanticVersionTests */,
 				3249119418A27FEB00F3438B /* Frameworks */,
@@ -237,7 +249,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324911D718A7D30000F3438B /* SWFSemanticVersion.podspec in Resources */,
+				324911D518A7D30000F3438B /* LICENSE in Resources */,
 				324911AC18A27FEB00F3438B /* Main_iPad.storyboard in Resources */,
+				324911D418A7D30000F3438B /* CHANGELOG.md in Resources */,
+				324911D618A7D30000F3438B /* README.md in Resources */,
 				324911B118A27FEB00F3438B /* Images.xcassets in Resources */,
 				324911A918A27FEB00F3438B /* Main_iPhone.storyboard in Resources */,
 				324911A018A27FEB00F3438B /* InfoPlist.strings in Resources */,
