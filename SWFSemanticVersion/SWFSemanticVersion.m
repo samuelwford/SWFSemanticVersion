@@ -8,15 +8,15 @@
 
 #import "SWFSemanticVersion.h"
 
-@interface NSString (SWF_Contains)
+@interface NSString (SWFSM_Contains)
 
-- (BOOL)SWF_containsString:(NSString *)string;
+- (BOOL)SWFSM_containsString:(NSString *)string;
 
 @end
 
-@implementation NSString (SWF_Contains)
+@implementation NSString (SWFSM_Contains)
 
-- (BOOL)SWF_containsString:(NSString *)string
+- (BOOL)SWFSM_containsString:(NSString *)string
 {
     NSRange r = [self rangeOfString:string ?: @""];
     return r.location != NSNotFound;
@@ -24,17 +24,17 @@
 
 @end
 
-@interface NSArray (SWF_Ordinals)
+@interface NSArray (SWFSM_Ordinals)
 
-- (id)SWF_secondObject;
+- (id)SWFSM_secondObject;
 
-- (id)SWF_thirdObject;
+- (id)SWFSM_thirdObject;
 
 @end
 
-@implementation NSArray (SWF_Ordinals)
+@implementation NSArray (SWFSM_Ordinals)
 
-- (id)SWF_secondObject
+- (id)SWFSM_secondObject
 {
     if (self.count > 1) {
         return [self objectAtIndex:1];
@@ -43,7 +43,7 @@
     return nil;
 }
 
-- (id)SWF_thirdObject
+- (id)SWFSM_thirdObject
 {
     if (self.count > 2) {
         return [self objectAtIndex:2];
@@ -81,16 +81,16 @@
     NSArray *stringSplitByDash = [string componentsSeparatedByString:@"-"];
     
     NSString *version = [stringSplitByDash firstObject];
-    NSString *parts = [stringSplitByDash SWF_secondObject];
+    NSString *parts = [stringSplitByDash SWFSM_secondObject];
     
-    if (parts && [parts SWF_containsString:@"+"]) {
+    if (parts && [parts SWFSM_containsString:@"+"]) {
         NSArray *partsSplitByPlus = [parts componentsSeparatedByString:@"+"];
         semVer.pre = [partsSplitByPlus firstObject];
-        semVer.build = [partsSplitByPlus SWF_secondObject];
-    } else if ([version SWF_containsString:@"+"]) {
+        semVer.build = [partsSplitByPlus SWFSM_secondObject];
+    } else if ([version SWFSM_containsString:@"+"]) {
         NSArray *versionSplitByPlus = [version componentsSeparatedByString:@"+"];
         version = [versionSplitByPlus firstObject];
-        semVer.build = [versionSplitByPlus SWF_secondObject];
+        semVer.build = [versionSplitByPlus SWFSM_secondObject];
     } else {
         semVer.pre = parts;
     }
@@ -98,8 +98,8 @@
     NSArray *versionSplitByDot = [version componentsSeparatedByString:@"."];
     
     semVer.major = @([[versionSplitByDot firstObject] integerValue]);
-    semVer.minor = @([[versionSplitByDot SWF_secondObject] integerValue]);
-    semVer.patch = @([[versionSplitByDot SWF_thirdObject] integerValue]);
+    semVer.minor = @([[versionSplitByDot SWFSM_secondObject] integerValue]);
+    semVer.patch = @([[versionSplitByDot SWFSM_thirdObject] integerValue]);
     
     return semVer;
 }
