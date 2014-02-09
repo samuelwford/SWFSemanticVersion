@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SWFSemanticVersion.h"
 
 @interface SWFSemanticVersionTests : XCTestCase
 
@@ -17,18 +18,20 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testSimplestVersion
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"0.1.0"];
+    
+    XCTAssert(semVer, @"where are you, semVer?");
+    XCTAssertEqualObjects(@0, semVer.major);
+    XCTAssertEqualObjects(@1, semVer.minor);
 }
 
 @end

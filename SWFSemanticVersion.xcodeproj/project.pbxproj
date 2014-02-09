@@ -22,6 +22,7 @@
 		324911BA18A27FEB00F3438B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249119918A27FEB00F3438B /* UIKit.framework */; };
 		324911C218A27FEB00F3438B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 324911C018A27FEB00F3438B /* InfoPlist.strings */; };
 		324911C418A27FEB00F3438B /* SWFSemanticVersionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 324911C318A27FEB00F3438B /* SWFSemanticVersionTests.m */; };
+		324911CF18A2801A00F3438B /* SWFSemanticVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 324911CE18A2801A00F3438B /* SWFSemanticVersion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		324911BF18A27FEB00F3438B /* SWFSemanticVersionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SWFSemanticVersionTests-Info.plist"; sourceTree = "<group>"; };
 		324911C118A27FEB00F3438B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		324911C318A27FEB00F3438B /* SWFSemanticVersionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWFSemanticVersionTests.m; sourceTree = "<group>"; };
+		324911CD18A2801A00F3438B /* SWFSemanticVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFSemanticVersion.h; sourceTree = "<group>"; };
+		324911CE18A2801A00F3438B /* SWFSemanticVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFSemanticVersion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				324911AE18A27FEB00F3438B /* SWFViewController.m */,
 				324911B018A27FEB00F3438B /* Images.xcassets */,
 				3249119C18A27FEB00F3438B /* Supporting Files */,
+				324911CD18A2801A00F3438B /* SWFSemanticVersion.h */,
+				324911CE18A2801A00F3438B /* SWFSemanticVersion.m */,
 			);
 			path = SWFSemanticVersion;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				324911A218A27FEB00F3438B /* main.m in Sources */,
+				324911CF18A2801A00F3438B /* SWFSemanticVersion.m in Sources */,
 				324911AF18A27FEB00F3438B /* SWFViewController.m in Sources */,
 				324911A618A27FEB00F3438B /* SWFAppDelegate.m in Sources */,
 			);
