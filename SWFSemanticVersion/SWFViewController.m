@@ -17,13 +17,52 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [self.firstVersion addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.secondVersion addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)compareVersions {
+    if (!self.firstSemVer || !self.secondSemVer) {
+        self.comparisonResult.text = @"?";
+        return;
+    }
+
+    NSComparisonResult result = [self.firstSemVer compare:self.secondSemVer];
+    
+    switch (result) {
+        case NSOrderedSame:
+            self.comparisonResult.text = @"==";
+            break;
+        
+        case NSOrderedAscending:
+            self.comparisonResult.text = @"<";
+            break;
+            
+        case NSOrderedDescending:
+            self.comparisonResult.text = @">";
+            break;
+    }
+}
+
+- (void)textFieldDidChange:(UITextField *)textField
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:textField.text];
+    
+    if (semVer) {
+        textField.textColor = [UIColor blackColor];
+    } else {
+        textField.textColor = [UIColor redColor];
+    }
+    
+    
+    if (textField == self.firstVersion) {
+        self.firstSemVer = semVer;
+    } else {
+        self.secondSemVer = semVer;
+    }
+    
+    [self compareVersions];
 }
 
 @end
