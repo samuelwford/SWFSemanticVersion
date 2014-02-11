@@ -134,7 +134,7 @@
         } else if (!self.pre && version.pre) {
             result = NSOrderedDescending; // no-pre > pre
         } else if (self.pre && version.pre) {
-            result = [self.pre compare:version.pre];
+            result = [self.pre compare:version.pre options:NSCaseInsensitiveSearch | NSNumericSearch];
         }
     }
     

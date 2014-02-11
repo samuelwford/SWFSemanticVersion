@@ -27,7 +27,7 @@
  ## Comparison Rules
  
  1. Major versions > minor versions > patch versions.
- 1. No pre-release suffixes > any pre-release suffixes, otherwise they are compared lexically.
+ 1. No pre-release suffixes > any pre-release suffixes, otherwise they are compared lexically and numerically.
  1. Build number suffixed are ignored for comparison.
  
  Examples:
@@ -40,6 +40,7 @@
  * 0.1.0+build1 == 0.1.0
  * 1.0.0-rc1 > 1.0.0+build1
  * 1.0.0-rc1+build1 == 1.0.0-rc1
+ * 1.0.0-beta.2 < 1.0.0-beta.11
  
  */
 @interface SWFSemanticVersion : NSObject

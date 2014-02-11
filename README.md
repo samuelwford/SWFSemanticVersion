@@ -13,14 +13,12 @@ To run the example project; clone the repo, build and run with Xcode. The sample
 
 The `SWFSemanticVersion` class parses a string in the format defined by the standard and produces a mutable value object from it. If the version string can't be parsed it returns `nil`.
 
-Instances can be compared and follow the rules defined by the standard. Specifically, major > minor > patch. Pre-release < release, but two pre-release suffixed are compared lexically. Build suffixes are ignore for comparison.
+Instances can be compared and follow the rules defined by the standard. Specifically, major > minor > patch. Pre-release < release, but two pre-release suffixed are compared lexically and numerically. Build suffixes are ignored for comparison.
 
 For example:
 
 * 1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
-* 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-rc.1 < 1.0.0
-
-Note, however, that since the pre-release suffix is compared lexically, beta.11 < beta.2. This is a departure from the standard.
+* 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
 
 ## Installation
 

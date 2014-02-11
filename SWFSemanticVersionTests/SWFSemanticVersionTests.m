@@ -146,6 +146,17 @@
     XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
 }
 
+- (void)testPreReleaseNumericSort
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.11"];
+    SWFSemanticVersion *b2 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.2"];
+    
+    XCTAssert(b1);
+    XCTAssert(b2);
+    
+    XCTAssertEqual(NSOrderedDescending, [b1 compare:b2]);
+}
+
 - (void)testEquality
 {
     SWFSemanticVersion *b1a = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
