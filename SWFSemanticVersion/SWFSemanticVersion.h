@@ -46,19 +46,19 @@
 @interface SWFSemanticVersion : NSObject
 
 /** Major version number. Increment for breaking changes. */
-@property (nonatomic, strong) NSNumber * major;
+@property (nonatomic, readonly) NSNumber * major;
 
 /** Minor version number. Increment for non-breaking enhancements. */
-@property (nonatomic, strong) NSNumber * minor;
+@property (nonatomic, readonly) NSNumber * minor;
 
 /** Patch version number. Increment for non-breaking bug fixes. */
-@property (nonatomic, strong) NSNumber * patch;
+@property (nonatomic, readonly) NSNumber * patch;
 
 /** Pre-release suffix. Optional. */
-@property (nonatomic, strong) NSString * pre;
+@property (nonatomic, readonly) NSString * pre;
 
 /** Build suffix. Optional. */
-@property (nonatomic, strong) NSString * build;
+@property (nonatomic, readonly) NSString * build;
 
 /**
  Creates a new `SWFSemanticVersion` by parsing the string passed.
@@ -66,6 +66,17 @@
  @return a version instance or nil of not a valid version
  */
 + (instancetype)semanticVersionWithString:(NSString *)string;
+
+/**
+ Initializes an instance with specified build numbers.
+ @param major major number
+ @param minor minor number
+ @param patch patch number
+ @param preRelease pre-release identifier
+ @param build build identifier
+ @return initialized instance
+ */
+- (instancetype)initWithMajor:(NSNumber *)major minor:(NSNumber *)minor patch:(NSNumber *)patch pre:(NSString *)pre build:(NSString *)build;
 
 /**
  Returns an `NSComparisonResult` indicating whether version passed is greater than, less than or equal to the current version.

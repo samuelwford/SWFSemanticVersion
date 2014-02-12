@@ -83,25 +83,46 @@
     NSString *version = [stringSplitByDash firstObject];
     NSString *parts = [stringSplitByDash SWFSM_secondObject];
     
+    NSNumber *major = @0;
+    NSNumber *minor = @0;
+    NSNumber *patch = @0;
+    NSString *pre = nil;
+    NSString *build = nil;
+    
     if (parts && [parts SWFSM_containsString:@"+"]) {
         NSArray *partsSplitByPlus = [parts componentsSeparatedByString:@"+"];
-        semVer.pre = [partsSplitByPlus firstObject];
-        semVer.build = [partsSplitByPlus SWFSM_secondObject];
+        pre = [partsSplitByPlus firstObject];
+        build = [partsSplitByPlus SWFSM_secondObject];
     } else if ([version SWFSM_containsString:@"+"]) {
         NSArray *versionSplitByPlus = [version componentsSeparatedByString:@"+"];
         version = [versionSplitByPlus firstObject];
-        semVer.build = [versionSplitByPlus SWFSM_secondObject];
+        build = [versionSplitByPlus SWFSM_secondObject];
     } else {
-        semVer.pre = parts;
+        pre = parts;
     }
     
     NSArray *versionSplitByDot = [version componentsSeparatedByString:@"."];
     
-    semVer.major = @([[versionSplitByDot firstObject] integerValue]);
-    semVer.minor = @([[versionSplitByDot SWFSM_secondObject] integerValue]);
-    semVer.patch = @([[versionSplitByDot SWFSM_thirdObject] integerValue]);
+    major = @([[versionSplitByDot firstObject] integerValue]);
+    minor = @([[versionSplitByDot SWFSM_secondObject] integerValue]);
+    patch = @([[versionSplitByDot SWFSM_thirdObject] integerValue]);
+    
+    semVer = [[SWFSemanticVersion alloc] initWithMajor:major minor:minor patch:patch pre:pre build:build];
     
     return semVer;
+}
+
+- (instancetype)initWithMajor:(NSNumber *)major minor:(NSNumber *)minor patch:(NSNumber *)patch pre:(NSString *)pre build:(NSString *)build
+{
+    if (self = [super init]) {
+        _major = major;
+        _minor = minor;
+        _patch = patch;
+        _pre = pre;
+        _build = build;
+    }
+    
+    return self;
 }
 
 - (NSArray *)components
