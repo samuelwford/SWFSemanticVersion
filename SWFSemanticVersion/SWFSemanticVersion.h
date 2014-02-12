@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- `SWFSemanticVersion` is a value object that represents a structured version number following the scheme defined by http://semver.org.
+ `SWFSemanticVersion` is an immutable value object that represents a structured version number following the scheme defined by http://semver.org.
  
  Version strings can be roundtripped to and from strings. For example, `[[SWFSemanticVersion semanticVersionFromString:@"0.1.2-rc.1"] description]` yields `0.1.2-rc.1".
  

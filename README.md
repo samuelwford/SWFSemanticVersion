@@ -11,9 +11,9 @@ To run the example project; clone the repo, build and run with Xcode. The sample
 
 ### Creating a Semantic Version
 
-The `SWFSemanticVersion` class parses a string in the format defined by the standard and produces a mutable value object from it. If the version string can't be parsed it returns `nil`.
+The `SWFSemanticVersion` class parses a string in the format defined by the standard and produces an immutable value object from it. If the version string can't be parsed it returns `nil`.
 
-Instances can be compared and follow the rules defined by the standard. Specifically, major > minor > patch. Pre-release < release, but two pre-release suffixed are compared lexically and numerically. Build suffixes are ignored for comparison.
+Instances can be compared and follow the rules defined by the standard. Specifically, major > minor > patch. Pre-release < release, but two pre-release suffixes are compared lexically and numerically. Build suffixes are ignored for comparison.
 
 For example:
 
