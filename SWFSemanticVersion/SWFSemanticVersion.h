@@ -46,19 +46,19 @@
 @interface SWFSemanticVersion : NSObject
 
 /** Major version number. Increment for breaking changes. */
-@property (nonatomic, readonly) NSNumber * major;
+@property (nonatomic, readonly, copy) NSNumber * major;
 
 /** Minor version number. Increment for non-breaking enhancements. */
-@property (nonatomic, readonly) NSNumber * minor;
+@property (nonatomic, readonly, copy) NSNumber * minor;
 
 /** Patch version number. Increment for non-breaking bug fixes. */
-@property (nonatomic, readonly) NSNumber * patch;
+@property (nonatomic, readonly, copy) NSNumber * patch;
 
 /** Pre-release suffix. Optional. */
-@property (nonatomic, readonly) NSString * pre;
+@property (nonatomic, readonly, copy) NSString * pre;
 
 /** Build suffix. Optional. */
-@property (nonatomic, readonly) NSString * build;
+@property (nonatomic, readonly, copy) NSString * build;
 
 /**
  Creates a new `SWFSemanticVersion` by parsing the string passed.
