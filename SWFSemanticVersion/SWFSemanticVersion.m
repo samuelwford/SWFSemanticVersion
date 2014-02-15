@@ -115,11 +115,11 @@
 - (instancetype)initWithMajor:(NSNumber *)major minor:(NSNumber *)minor patch:(NSNumber *)patch pre:(NSString *)pre build:(NSString *)build
 {
     if (self = [super init]) {
-        _major = major;
-        _minor = minor;
-        _patch = patch;
-        _pre = pre;
-        _build = build;
+        _major = [major copy];
+        _minor = [minor copy];
+        _patch = [patch copy];
+        _pre = [pre copy];
+        _build = [build copy];
     }
     
     return self;
