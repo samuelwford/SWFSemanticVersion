@@ -1,5 +1,9 @@
 # SWFSemanticVersion CHANGELOG
 
+## 0.3.1
+
+Fix bug causing equality checks to fail if compared with instances of other classes. 
+
 ## 0.3.0
 
 Make the class immutable.

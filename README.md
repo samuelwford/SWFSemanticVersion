@@ -31,6 +31,10 @@ it simply add the following line to your Podfile:
 
 Samuel Ford, samuel.ford@icloud.com
 
+### Acknowledgements
+
+[Mikael Barlett](https://github.com/samuelwford/SWFSemanticVersion/pull/1)
+
 ## License
 
 SWFSemanticVersion is available under the MIT license. See the LICENSE file for more info.
