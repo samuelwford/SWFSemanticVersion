@@ -132,7 +132,14 @@
 
 - (BOOL)isEqual:(id)object
 {
-    return [self compare:object] == NSOrderedSame;
+    if([object isKindOfClass:self.class])
+    {
+        return [self compare:object] == NSOrderedSame;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 - (NSComparisonResult)compare:(SWFSemanticVersion *)version

@@ -169,6 +169,7 @@
     
     XCTAssert([b1a isEqual:b1b]);
     XCTAssertFalse([b1a isEqual:b2]);
+    XCTAssertFalse([b1a isEqual:NSNull.null]);
 }
 
 @end
