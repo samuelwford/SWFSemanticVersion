@@ -25,6 +25,26 @@
     [super tearDown];
 }
 
+- (void)testSimplestPartialVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1"];
+    
+    XCTAssert(semVer, @"where are you, semVer?");
+    XCTAssertEqualObjects(@1, semVer.major);
+    XCTAssertEqualObjects(@0, semVer.minor);
+    XCTAssertEqualObjects(@0, semVer.patch);
+}
+
+- (void)testPartialVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"2.1"];
+    
+    XCTAssert(semVer, @"where are you, semVer?");
+    XCTAssertEqualObjects(@2, semVer.major);
+    XCTAssertEqualObjects(@1, semVer.minor);
+    XCTAssertEqualObjects(@0, semVer.patch);
+}
+
 - (void)testSimplestVersion
 {
     SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"0.1.0"];
@@ -32,6 +52,13 @@
     XCTAssert(semVer, @"where are you, semVer?");
     XCTAssertEqualObjects(@0, semVer.major);
     XCTAssertEqualObjects(@1, semVer.minor);
+}
+
+- (void)testInvalidPartialVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1-beta"];
+    
+    XCTAssertNil(semVer, @"wha?");
 }
 
 - (void)testInvalidVersionsAreNil
