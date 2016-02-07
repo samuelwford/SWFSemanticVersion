@@ -441,11 +441,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SWFSemanticVersion.app/SWFSemanticVersion";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SWFSemanticVersion/SWFSemanticVersion-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -464,11 +459,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SWFSemanticVersion.app/SWFSemanticVersion";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SWFSemanticVersion/SWFSemanticVersion-Prefix.pch";
 				INFOPLIST_FILE = "SWFSemanticVersionTests/SWFSemanticVersionTests-Info.plist";
@@ -497,6 +487,7 @@
 				324911C918A27FEB00F3438B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		324911CA18A27FEB00F3438B /* Build configuration list for PBXNativeTarget "SWFSemanticVersionTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +496,7 @@
 				324911CC18A27FEB00F3438B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
