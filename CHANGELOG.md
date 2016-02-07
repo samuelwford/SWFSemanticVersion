@@ -1,5 +1,9 @@
 # SWFSemanticVersion CHANGELOG
 
+## 0.4
+
+Merge pull request from wlisac adding support for partial versions (e.g. "2.1").
+
 ## 0.3.1
 
 Fix bug causing equality checks to fail if compared with instances of other classes. 

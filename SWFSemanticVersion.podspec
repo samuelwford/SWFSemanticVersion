@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = "SWFSemanticVersion"
-  s.version      = "0.3.1"
+  s.version      = "0.4"
   s.summary      = "A mutable value object implementation of SemVer."
   s.description  = <<-DESC
                     Parses and compares strings that contain SemVer strings.
                    DESC
   s.homepage     = "https://github.com/samuelwford/swfsemanticversion"
   s.license      = 'MIT'
-  s.author       = { "Samuel Ford" => "samuel.ford@icloud.com" }
+  s.authors      = { "Samuel Ford" => "samuel.ford@icloud.com", "Will Lisac" => "https://github.com/wlisac" }
   s.source       = { :git => "https://github.com/samuelwford/SWFSemanticVersion.git", :tag => s.version.to_s }
 
   s.requires_arc = true
