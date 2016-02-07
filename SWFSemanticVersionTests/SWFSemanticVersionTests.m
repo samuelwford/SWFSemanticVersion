@@ -25,6 +25,14 @@
     [super tearDown];
 }
 
+- (void)testExplicitInit
+{
+    SWFSemanticVersion *semVer = [[SWFSemanticVersion alloc] initWithMajor:@(0) minor:@(0) patch:@(0) pre:nil build:nil];
+    
+    XCTAssert(semVer, @"where are you, semVer?");
+    XCTAssertEqualObjects(@"0.0.0", [semVer description]);
+}
+
 - (void)testSimplestPartialVersion
 {
     SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1"];

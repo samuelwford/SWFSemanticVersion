@@ -20,6 +20,18 @@ For example:
 * 1.0.0 < 2.0.0 < 2.1.0 < 2.1.1
 * 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
 
+Create from a string (will return a nil if the string isn't parseable):
+
+```objc
+SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"0.1.0"];
+```
+
+Or create manually:
+
+```objc
+SWFSemanticVersion *semVer = [[SWFSemanticVersion alloc] initWithMajor:@(0) minor:@(0) patch:@(0) pre:nil build:nil];
+```
+
 ## Installation
 
 SWFSemanticVersion is available through [CocoaPods](http://cocoapods.org), to install
@@ -33,8 +45,8 @@ Samuel Ford, samuel.ford@icloud.com
 
 ### Acknowledgements
 
-[Mikael Barlett](https://github.com/samuelwford/SWFSemanticVersion/pull/1)
-[Will Lisac](https://github.com/samuelwford/SWFSemanticVersion/pull/2)
+* [Mikael Barlett](https://github.com/samuelwford/SWFSemanticVersion/pull/1)
+* [Will Lisac](https://github.com/samuelwford/SWFSemanticVersion/pull/2)
 
 ## License
 

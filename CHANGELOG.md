@@ -1,5 +1,13 @@
 # SWFSemanticVersion CHANGELOG
 
+## 0.4.2
+
+Forgot to update changelog; tweak layout in readme.
+
+## 0.4.1
+
+Update readme.
+
 ## 0.4
 
 Merge pull request from wlisac adding support for partial versions (e.g. "2.1").
