@@ -34,6 +34,7 @@ Samuel Ford, samuel.ford@icloud.com
 ### Acknowledgements
 
 [Mikael Barlett](https://github.com/samuelwford/SWFSemanticVersion/pull/1)
+[Will Lisac](https://github.com/samuelwford/SWFSemanticVersion/pull/2)
 
 ## License
 
