@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/samuelwford/swfsemanticversion"
   s.license      = 'MIT'
-  s.authors      = { "Samuel Ford" => "samuel.ford@icloud.com", "Will Lisac" => "https://github.com/wlisac" }
+  s.authors      = { "Samuel Ford" => "samuel.ford@icloud.com" }
   s.source       = { :git => "https://github.com/samuelwford/SWFSemanticVersion.git", :tag => s.version.to_s }
 
   s.requires_arc = true
