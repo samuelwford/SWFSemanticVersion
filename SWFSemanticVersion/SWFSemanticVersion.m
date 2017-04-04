@@ -184,4 +184,27 @@
     return string;
 }
 
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _major = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(major))];
+        _minor =  [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(minor))];
+        _patch = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(patch))];
+        _pre = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(pre))];
+        _build = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(build))];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.major forKey:NSStringFromSelector(@selector(major))];
+    [aCoder encodeObject:self.minor forKey:NSStringFromSelector(@selector(minor))];
+    [aCoder encodeObject:self.patch forKey:NSStringFromSelector(@selector(patch))];
+    [aCoder encodeObject:self.pre forKey:NSStringFromSelector(@selector(pre))];
+    [aCoder encodeObject:self.build forKey:NSStringFromSelector(@selector(build))];
+}
+
 @end
