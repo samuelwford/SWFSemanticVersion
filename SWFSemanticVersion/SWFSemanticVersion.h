@@ -43,7 +43,7 @@
  * 1.0.0-beta.2 < 1.0.0-beta.11
  
  */
-@interface SWFSemanticVersion : NSObject
+@interface SWFSemanticVersion : NSObject <NSCoding>
 
 /** Major version number. Increment for breaking changes. */
 @property (nonatomic, readonly, copy) NSNumber * major;
