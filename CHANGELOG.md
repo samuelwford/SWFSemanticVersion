@@ -1,5 +1,9 @@
 # SWFSemanticVersion CHANGELOG
 
+## 0.4.3
+
+Add support for NSCoding.
+
 ## 0.4.2
 
 Forgot to update changelog; tweak layout in readme.

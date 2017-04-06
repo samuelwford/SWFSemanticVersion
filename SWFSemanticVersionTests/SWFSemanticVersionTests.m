@@ -207,4 +207,14 @@
     XCTAssertFalse([b1a isEqual:NSNull.null]);
 }
 
+- (void)testCoding
+{
+    SWFSemanticVersion *b1 = [SWFSemanticVersion semanticVersionWithString:@"1.0.0-rc.1"];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:b1];
+    
+    SWFSemanticVersion *b2 = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    XCTAssert([b2 isEqual:b1]);
+}
+
 @end
