@@ -72,7 +72,7 @@
  @param major major number
  @param minor minor number
  @param patch patch number
- @param preRelease pre-release identifier
+ @param pre pre-release identifier
  @param build build identifier
  @return initialized instance
  */
