@@ -62,9 +62,57 @@
     XCTAssertEqualObjects(@1, semVer.minor);
 }
 
+- (void)testStrictValidationSimplestPartialVersion
+{
+        SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1" withStrictValidation:YES];
+    
+    XCTAssertNil(semVer, @"Strict validation failed. :(");
+}
+
+- (void)testStrictValidationPartialVersion
+{
+        SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"2.1" withStrictValidation:YES];
+        XCTAssertNil(semVer, @"Strict validation failed. :(");
+}
+
+- (void)testInvalidEmptyVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@""];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
 - (void)testInvalidPartialVersion
 {
     SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1-beta"];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
+- (void)testInvalidExtraDigitsVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1.1.1.1234"];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
+- (void)testInvalidLeadingZeroesMajorVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"0001.0.1"];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
+- (void)testInvalidLeadingZeroesMinorVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1.01.1"];
+    
+    XCTAssertNil(semVer, @"wha?");
+}
+
+- (void)testInvalidLeadingZeroesPatchVersion
+{
+    SWFSemanticVersion *semVer = [SWFSemanticVersion semanticVersionWithString:@"1.0.0001"];
     
     XCTAssertNil(semVer, @"wha?");
 }

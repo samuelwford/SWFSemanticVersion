@@ -69,6 +69,11 @@
 
 + (instancetype)semanticVersionWithString:(NSString *)string
 {
+    return [self semanticVersionWithString:string withStrictValidation:NO];
+}
+
++ (instancetype)semanticVersionWithString:(NSString *)string withStrictValidation:(BOOL) strict
+{
     SWFSemanticVersion *semVer = [SWFSemanticVersion new];
     
     NSRange range = NSMakeRange(0, string.length);
@@ -102,6 +107,16 @@
     }
     
     NSArray *versionSplitByDot = [version componentsSeparatedByString:@"."];
+    
+    for (NSString *digit in versionSplitByDot) {
+        if (![digit  isEqual: @"0"] && [digit characterAtIndex:0] == '0') {
+            return nil;
+        }
+    }
+    
+    if (strict && [versionSplitByDot count] != 3) {
+        return nil;
+    }
     
     major = @([[versionSplitByDot firstObject] integerValue]);
     minor = @([[versionSplitByDot SWFSM_secondObject] integerValue]);

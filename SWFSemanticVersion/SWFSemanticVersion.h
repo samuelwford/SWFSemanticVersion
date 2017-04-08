@@ -68,6 +68,15 @@
 + (instancetype)semanticVersionWithString:(NSString *)string;
 
 /**
+ Creates a new `SWFSemanticVersion` by parsing the string passed.
+
+ @param string string a semantic version string
+ @param strict BOOL YES enables strict validation of semantic version marking strings missing MINOR or PATCH as invalid
+ @return a version instance or nil of not a valid version
+ */
++ (instancetype)semanticVersionWithString:(NSString *)string withStrictValidation:(BOOL) strict;
+
+/**
  Initializes an instance with specified build numbers.
  @param major major number
  @param minor minor number
