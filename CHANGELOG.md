@@ -1,5 +1,9 @@
 # SWFSemanticVersion CHANGELOG
 
+## 0.5.0
+
+Add option for strict parsing.
+
 ## 0.4.3
 
 Add support for NSCoding.
