@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SWFSemanticVersion"
-  s.version      = "0.4.3"
+  s.version      = "0.5.0"
   s.summary      = "A mutable value object implementation of SemVer."
   s.description  = <<-DESC
                     Parses and compares strings that contain SemVer strings.
